@@ -15,6 +15,10 @@ Gradio & FastAPI 동시성 테스트
   - `gunicorn test:app --worker-class uvicorn.workers.UvicornWorker --workers 1`
   - `gunicorn test:app --worker-class uvicorn.workers.UvicornWorker --workers 3`
 
+### 테스트 진행
+- 데모 페이지 : `http://127.0.0.1:8000`
+- API 호출 : `curl -X 'GET' 'http://127.0.0.1:8000/test1' -H 'accept: application/json'`
+
 ## 결론
 - 데모의 `concurrency_limit` 속성은 데모 페이지에서 버튼을 누를 때만 적용되고 API 호출과는 무관하다.
   - 쓰레드 기반으로 동작함. 따라서, **button2(연산)** 기능을 동시에 사용하면 모든 요청의 속도가 느려짐.
