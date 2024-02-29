@@ -24,8 +24,8 @@ Gradio & FastAPI 동시성 테스트
   - 대신, gradio 데모 페이지에서 queue 대기열이 얼마나 되는지 미리 확인할 수 없음.
   - 데모와 API 양쪽에서 동시 호출했을 때 API 호출이 더 늦었음에도 불구하고 데모보다 우선적으로 처리됨.
 - `uvicorn`과 `gunicorn` 모두 프로세스 기반으로 동작한다.
-  - `uvicorn test:app --workers 3`으로 **button2(연산)**을 수행한 결과, 모든 요청이 약 8초 소요되었음.
-  - `gunicorn test:app --worker-class uvicorn.workers.UvicornWorker --workers 3`으로 **button2(연산)**을 수행한 결과, 모든 요청이 약 8초 소요되었음.
+  - `uvicorn test:app --workers 3`으로 **button2(연산)** 을 수행한 결과, 모든 요청이 약 8초 소요되었음.
+  - `gunicorn test:app --worker-class uvicorn.workers.UvicornWorker --workers 3`으로 **button2(연산)** 을 수행한 결과, 모든 요청이 약 8초 소요되었음.
   - 단, `gunicorn`으로 동시요청 테스트 시, `[CRITICAL] WORKER TIMEOUT` 에러가 자주 발생함. (timeout 설정 default가 빡빡한듯)
 
 ### 최종 결론 : AI 서비스를 API로 배포할 때
