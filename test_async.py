@@ -6,23 +6,23 @@ app = FastAPI()
 concurrency_limit = 1
 
 @app.get("/test1")
-def api_test1() :
-    result = click_button1()
+async def api_test1() :
+    result = await click_button1()
     return {"result": result}
 
 @app.get("/test2")
-def api_test2() :
-    result = click_button2()
+async def api_test2() :
+    result = await click_button2()
     return {"result": result}
 
-def click_button1() :
+async def click_button1() :
     print('click button1 !')
     time.sleep(10)
     print('sleep finish!')
     return 'DONE'
 
 # 약 8초 정도 수행됨
-def click_button2() :
+async def click_button2() :
     start_time = time.time()
     print('click button2 !')
     total = 0
