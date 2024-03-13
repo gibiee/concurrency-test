@@ -38,5 +38,5 @@ with gr.Blocks() as demo :
     
     button.click(fn=generate_image, outputs=output_img, concurrency_limit=concurrency_limit)
 
-demo.launch()
-# app = gr.mount_gradio_app(app, demo, path="/")
+# demo.launch()
+app = gr.mount_gradio_app(app, demo, path="/")
